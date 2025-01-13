@@ -139,6 +139,32 @@ systemctl restart prometheus
 ```
 
 ![alert](https://github.com/incid3nt/alertmanager/blob/main/img/chrome_ONttIykuvW.png)
+
+Настройка оповещений: 
+откроем конфиг файл alertmanager:
+```
+nano /etc/prometheus/alertmanager.yml
+```
+```
+global:
+
+route:
+  group_by: ['alertname']  # Группировка оповещений по имени
+  group_wait: 30s           # Время ожидания перед отправкой первого оповещения
+  group_interval: 10m       # Интервал между уведомлениями о новых сработках
+  repeat_interval: 60m      # Интервал повтора уведомлений
+  receiver: 'email'         # Способ доставки оповещений
+
+receivers:
+  - name: 'email'
+    email_configs:
+      - to: 'yourmailto@todomain.com'
+        from: 'yourmailfrom@fromdomain.com'
+        smarthost: 'mailserver:25'
+        auth_username: 'user'
+        auth_identity: 'user'
+        auth_password: 'paS$w0rd'  # Рекомендуется заменить на переменную окружения
+```
 ---
 
 ### Задание 3
@@ -147,7 +173,7 @@ systemctl restart prometheus
 
  приложите скриншот браузера с открытым эндпоинтом, а также скриншот списка таргетов из интерфейса Prometheus.*
 
-
+3. 
 
 ### Задание 4
 
