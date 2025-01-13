@@ -71,8 +71,14 @@ systemctl stop node-exporter
 
 Прикрепите скриншот Alerts из Prometheus, где правило оповещения будет в статусе Fireing, и скриншот из Alertmanager, где будет видно действующее правило оповещения
 
-
-
+2. Скачаем alertmanager 
+```
+wget https://github.com/prometheus/alertmanager/releases/download/v0.24.0/alertmanager-0.24.0.linux-amd64.tar.gz
+```
+распакуем:
+```
+tar -xvf alertmanager-0.24.0.linux-amd64.tar.gz
+```
 ---
 
 ### Задание 3
