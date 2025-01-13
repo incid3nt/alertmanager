@@ -137,6 +137,8 @@ alerting:
 ```
 systemctl restart prometheus
 ```
+
+![alert](https://github.com/incid3nt/alertmanager/blob/main/img/chrome_ONttIykuvW.png)
 ---
 
 ### Задание 3
