@@ -175,7 +175,40 @@ receivers:
 
  приложите скриншот браузера с открытым эндпоинтом, а также скриншот списка таргетов из интерфейса Prometheus.*
 
-3. 
+3. После установки Docker создаем файл
+```
+nano /etc/docker/daemon.json
+```
+Укажем внутри него IP и порт на котором Docker будет отдавать метрики, в формате "server_ip:port"
+```
+{
+ "metrics-addr": "0.0.0.0:9323",
+ "experimental": true
+}
+```
+После этого перезапускаем Docker
+```
+systemctl restart docker && systemctl status docker
+```
+Для проверки можно открыть адрес 
+```
+https://server_ip:port/metrics
+```
+Добавим эндпоинт Docker в Prometheus:
+Чтобы поставить только что организованный эндпоинт на мониторинг, необходимо отредактировать файл prometheus.yml:
+
+```
+nano /etc/prometheus/prometheus.yml
+```
+В раздел static_config добавим новый эндпоинт:
+```
+ static_configs:
+      - targets: ["localhost:9090", "localhost:9100",  "192.168.1.27:9100", "localhost:9323"]
+```
+Перезапустим prometheus:
+```
+systemctl restart prometheus
+```
 
 ### Задание 4
 
