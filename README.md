@@ -79,6 +79,36 @@ wget https://github.com/prometheus/alertmanager/releases/download/v0.24.0/alertm
 ```
 tar -xvf alertmanager-0.24.0.linux-amd64.tar.gz
 ```
+Скопируем содержимое архива в папки:
+```
+cp ./alertmanager /usr/local/bin/
+cp ./amtool /usr/local/bin/
+```
+Скопируем config в папку в Prometheus:
+```
+cp ./alertmanager.yml /etc/prometheus/
+```
+Передаем пользователю Prometheus права на файл:
+```
+chown -R prometheus:prometheus /etc/prometheus/alertmanager.yml
+```
+Создаем сервис для работы с Node-Exporter:
+nano /etc/systemd/system/prometheus-alertmanager.service
+```
+[Unit]
+Description=Alermanager Service - [Еноктаев Олег]
+After=network.target
+[Service]
+EnvironmentFile=-/etc/default/alertmanager
+User=prometheus
+Group=prometheus
+Type=simple
+ExecStart=/usr/local/bin/alertmanager --config.file=/etc/prometheus/alertmanager.yml --storage.path=/var/lib/prometheus/alertmanager $ARGS
+ExecReload=/bin/kill -HUP $MAINPID
+Restart=on-failure
+[Install]
+WantedBy=multi-user.target
+```
 ---
 
 ### Задание 3
