@@ -109,6 +109,20 @@ Restart=on-failure
 [Install]
 WantedBy=multi-user.target
 ```
+```
+Пропишем автозапуск:
+```
+systemctl enable prometheus-alertmanager
+```
+Запустим сервис:
+```
+systemctl start prometheus-alertmanager
+```
+Проверим статус:
+```
+systemctl start prometheus-alertmanager
+```
+
 ---
 
 ### Задание 3
