@@ -213,3 +213,13 @@ systemctl restart prometheus
 ### Задание 4
 
 Создайте свой дашборд Grafana с различными метриками Docker и сервера, на котором он стоит.
+
+4. заходим в веб морду grafana , используется 3000 порт 
+В интерфейсе Grafana нажмите на «+»
+и выберите Dashboards
+Нажмите + New dashboard > Add new panel
+В выпадающем меню Metrics выберите: engine >
+engine_daemon_container_states_containers;
+Нажмите Apply и перейдите
+в интерфейс Dashboard
+Сохраните Dashboard
