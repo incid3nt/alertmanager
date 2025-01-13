@@ -165,6 +165,8 @@ receivers:
         auth_identity: 'user'
         auth_password: 'paS$w0rd'  # Рекомендуется заменить на переменную окружения
 ```
+
+![alert](https://github.com/incid3nt/alertmanager/blob/main/img/chrome_DHALmL5Lbv.png)
 ---
 
 ### Задание 3
