@@ -223,3 +223,4 @@ engine_daemon_container_states_containers;
 Нажмите Apply и перейдите
 в интерфейс Dashboard
 Сохраните Dashboard
+![grafana](https://github.com/incid3nt/alertmanager/blob/main/img/chrome_rUStfIFR39.png)
