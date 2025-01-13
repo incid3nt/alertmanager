@@ -122,7 +122,21 @@ systemctl start prometheus-alertmanager
 ```
 systemctl start prometheus-alertmanager
 ```
-
+Подключим alertmanager к prometheus:
+Добавим в config-файл Prometheus подключение к Alertmanager:
+nano /etc/prometheus/prometheus.yml
+Приведем раздел Alertmanager configuration к виду:
+```
+alerting:
+  alertmanagers:
+    - static_configs:
+        - targets:
+           - localhost:9093
+```
+перезапустим prometheus:
+```
+systemctl restart prometheus
+```
 ---
 
 ### Задание 3
