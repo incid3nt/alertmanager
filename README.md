@@ -62,6 +62,7 @@ scrape_configs:
 ```
 systemctl stop node-exporter
 ```
+![alert](https://github.com/incid3nt/alertmanager/blob/main/img/chrome_qNjUNUPTtS.png)
 ---
 
 ### Задание 2
